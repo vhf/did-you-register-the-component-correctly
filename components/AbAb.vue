@@ -2,28 +2,26 @@
   <div class="tree-menu">
     <div class="label-wrapper">
       <div :style="indent">
-        <i
-          v-if="nodes"
-          class="fa" />
         {{ label }}
       </div>
     </div>
-    <ba-ba
-      v-for="(node, index) in nodes"
-      :key="index"
-      :nodes="node.nodes"
-      :label="node.label"
-      :depth="depth + 1" />
+    <div v-if="nodes && nodes.length">
+      <ba-ba
+        v-for="(node, index) in nodes"
+        :key="index"
+        :nodes="node.nodes"
+        :label="node.label"
+        :depth="depth + 1" />
+    </div>
+    <div v-else />
   </div>
 </template>
 
 <script>
-import BaBa from '@/components/BaBa'
-
 export default {
   name: 'AbAb',
   components: {
-    BaBa
+    BaBa: () => import('@/components/BaBa')
   },
   props: [
     'nodes',
