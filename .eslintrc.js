@@ -16,6 +16,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'vue/require-prop-types': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
